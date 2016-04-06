@@ -17,7 +17,7 @@ html {
 	font-size: 100%;
 }
 body{
-	background-image: image("pink.jpg");
+
 }
 body,
 input,
@@ -27,6 +27,7 @@ button,
 .ui-btn {
 	font-size: 1em;
 	line-height: 1.3;
+
 	 font-family: sans-serif /*{global-font-family}*/;
 }
 legend,
@@ -915,4 +916,55 @@ button[disabled],
 /*other*/
 .box{
 	margin: 1px 10px;
+}
+.middlebox{
+	float: left;
+	width: 50%;
+}
+.size{
+	width:60%;
+	margin: 0 20%;
+}
+.back{
+	margin: 10px 5px;
+	height: 10%;
+	background-color: rgba(237, 240, 238, 0.35);
+
+  border-radius: .5em;
+	color: black;
+	font-weight: bold;
+text-align: center;
+font-size: 22px;
+}
+.area{
+	resize: none;
+	height: 20px;
+}
+.pictures{
+	float: left;
+	width: 48%;
+	height: 10em;
+	margin: 1% 1%;
+}
+.pictures2{
+	float: left;
+	width: 200px;
+	height: 115px;
+	margin: 1% 1%;
+}
+.img-hover img {
+    -webkit-transition: all .3s ease; /* Safari and Chrome */
+  	-moz-transition: all .3s ease; /* Firefox */
+  	-o-transition: all .3s ease; /* IE 9 */
+  	-ms-transition: all .3s ease; /* Opera */
+  	transition: all .3s ease;
+}
+.img-hover img:hover {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform:translateZ(0) scale(1.20); /* Safari and Chrome */
+    -moz-transform:scale(1.20); /* Firefox */
+    -ms-transform:scale(1.20); /* IE 9 */
+    -o-transform:translatZ(0) scale(1.20); /* Opera */
+    transform:translatZ(0) scale(1.20);
 }
