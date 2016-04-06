@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+ var mob = require('./routes/mob');
+
 
 
 var app = express();
@@ -26,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/mobile', mob);
+
 app.get('/contactanos',function(req, res, next){
   var renderobject={};
   renderObject.Nombres=[];
