@@ -184,7 +184,7 @@ legend, .ui-input-text input, .ui-input-search input {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
-  background-color: #666666/*{global-icon-color}*/
+  background-color: #6666606/*{global-icon-color}*/
   ;
   background-color: rgba(0, 0, 0, .15)/*{global-icon-disc}*/
   ;
@@ -298,11 +298,13 @@ legend, .ui-input-text input, .ui-input-search input {
 .ui-page-theme-a a:active, html .ui-bar-a a:active, html .ui-body-a a:active, html body .ui-group-theme-a a:active {
   color: #005599;
 }
-.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited {
+.0 {
   background-color: #f6f6f6;
   border-color: #dddddd;
   color: #333333;
   text-shadow: 0 1px 0 #f3f3f3;
+margin: 3% 2%;
+
 }
 .ui-page-theme-a .ui-btn:hover, html .ui-bar-a .ui-btn:hover, html .ui-body-a .ui-btn:hover, html body .ui-group-theme-a .ui-btn:hover, html head + body .ui-btn.ui-btn-a:hover {
   background-color: #ededed;
@@ -563,4 +565,9 @@ legend, .ui-input-text input, .ui-input-search input {
 .ui-noboxshadow .ui-btn:focus, .ui-noboxshadow .ui-focus {
   outline-width: 1px;
   outline-style: auto;
+}
+
+.boton{
+	background-color: rgba(118, 242, 134, 0);
+	border-color: rgba(241, 175, 112, 0);
 }

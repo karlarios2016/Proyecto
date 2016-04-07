@@ -87,6 +87,7 @@ label.ui-btn {
 .ui-btn-active {
 	cursor: pointer;
 }
+
 /* Corner rounding
 -----------------------------------------------------------------------------------------------------------*/
 /* Class ui-btn-corner-all deprecated in 1.4 */
@@ -967,4 +968,12 @@ font-size: 22px;
     -ms-transform:scale(1.20); /* IE 9 */
     -o-transform:translatZ(0) scale(1.20); /* Opera */
     transform:translatZ(0) scale(1.20);
+}
+.bordes{
+	margin: 3% 2%;
+}
+
+.boton{
+	background-color: rgba(118, 242, 134, 0);
+	border-color: rgba(241, 175, 112, 0);
 }

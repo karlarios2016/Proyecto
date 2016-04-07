@@ -781,8 +781,8 @@ legend, .ui-input-text input, .ui-input-search input {
   color: #059
 }
 .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
-  background-color: #f6f6f6;
-  border-color: #ddd;
+  background-color: rgba(218, 138, 83, 0);
+  border-color: rgba(252, 43, 125, 0);
   color: #333;
   text-shadow: 0 1px 0 #f3f3f3
 }
