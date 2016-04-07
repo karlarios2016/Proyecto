@@ -6,12 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
- var mob = require('./routes/mob');
+//var users = require('./routes/users');
+//var mob = require('./routes/mob');
 
 
 
 var app = express();
+
+function getApp(db){
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,8 +29,8 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/mobile', mob);
+//app.use('/users', users);
+//app.use('/mobile', mob);
 
 app.get('/contactanos',function(req, res, next){
   var renderobject={};
@@ -70,5 +72,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+return app;
 
-module.exports = app;
+}
+
+module.exports = getApp;

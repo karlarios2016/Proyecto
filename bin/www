@@ -4,7 +4,17 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+ var mongoClient = require('mongodb').MongoClient,
+    mongoUrl = "mongodb://localhost:27017/prueba";
+
+mongoClient.connect(mongoUrl,
+    function(err, db){
+        if(err){
+            console.log(err);
+            process.exit(1);
+        }
+
+var app = require('../app')(db);
 var debug = require('debug')('proyectoFinal:server');
 var http = require('http');
 
@@ -88,3 +98,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+});
