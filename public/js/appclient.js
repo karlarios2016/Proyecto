@@ -6,7 +6,7 @@ function page3_onload(e){
 //    e.stopPropagation();
 
     var query={};
-    $("box").find("input").each(function(i,obj){
+    $("form").find("input").each(function(i,obj){
       var ip = $(obj);
       if(ip.attr("name")==="txtNombre"){
         query.txtNombre = ip.val();

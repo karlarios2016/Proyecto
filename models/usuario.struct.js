@@ -5,9 +5,9 @@ module.exports = {
             "nombreCompleto":"",
             "contrasena":"",
             "fechaIngreso":0,
-            "estado":"ACT",
             "telefono":"",
-            "direccion":""
+            "direccion":"",
+            "estado":"ACT"
           //  "fechaCambioContrasena":0,
 
           //  "ultimasContrasenas":[],
