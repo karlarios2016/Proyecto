@@ -978,7 +978,9 @@ align-items: center;
 }
 
 a.ui-btn.ui-corner-all.bordes {
-    margin: 3%;
+    margin: 2%;
+		    border-radius: 6px;
+		box-shadow: -2px 5px 1px gray;
 }
 
 @font-face {
