@@ -963,16 +963,19 @@ font-size: 22px;
 .img-hover img:hover {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-transform:translateZ(0) scale(1.20); /* Safari and Chrome */
+    -webkit-transform:translateZ(0) scale(1.80); /* Safari and Chrome */
     -moz-transform:scale(1.20); /* Firefox */
     -ms-transform:scale(1.20); /* IE 9 */
     -o-transform:translatZ(0) scale(1.20); /* Opera */
-    transform:translatZ(0) scale(1.20);
+    transform:translatZ(0) scale(5.20);
+		margin: 50% 50%;
 }
-.bordes{
-	margin: 3% 2%;
-}
+
 
 .boton{
 align-items: center;
+}
+
+a.ui-btn.ui-corner-all.bordes {
+    margin: 3%;
 }
