@@ -5,7 +5,6 @@ module.exports = {
             "nombreCompleto":"",
             "contrasena":"",
             "fechaIngreso":0,
-            "intentosFallidos":0,
             "estado":"ACT",
             "telefono":"",
             "direccion":""
@@ -16,7 +15,5 @@ module.exports = {
           //  "proyectos":[]
         };
     },
-    proyecto : function(){
-        return {"codigo":"","nombre":""};
-    }
+
 };

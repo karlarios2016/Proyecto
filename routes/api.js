@@ -26,7 +26,7 @@ module.exports = function(db) {
 var usuariosModel = new Usuarios(db);
 router.post('/newuser', function(req, res, next) {
   var newUser = {
-    "name": req.body.txtNombre,
+    "Cname": req.body.txtNombre,
     "email": req.body.txtEmail,
     "password": req.body.txtPswd,
     "phone": req.body.txtTelef,

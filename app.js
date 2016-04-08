@@ -10,10 +10,11 @@ var routes = require('./routes/index');
 //var mob = require('./routes/mob');
 
 
+function getApp(db){
 
 var app = express();
+var api = require('./routes/api')(db);
 
-function getApp(db){
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +30,7 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/api', api);
 //app.use('/users', users);
 //app.use('/mobile', mob);
 

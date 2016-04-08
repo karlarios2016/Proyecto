@@ -11,11 +11,12 @@ var UsuarioModel = function(db){
 };
 
 UsuarioModel.prototype.nuevoUsuario = function(data,handler){
+  console.log(data);
   //se asume que data tiene correo y contrasena
   var newUser = usuarioStruct.usuario();
-  newUser.nombreCompleto= data.name
+  newUser.nombreCompleto= data.Cname;
   newUser.fechaIngreso = Date.now();
-  newUser.correo = data.correo;
+  newUser.correo = data.email;
   newUser.telefono = data.phone;
   newUser.direccion= data.addr;
   var saltPswd = (newUser.fechaIngreso%2)==0 ?

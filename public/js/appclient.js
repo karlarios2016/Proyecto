@@ -2,11 +2,15 @@ $("#page3").on("pagecreate",page3_onload);
 
 function page3_onload(e){
   $("#btnNewUser").on("click", function(e){
-//    e.preventDefault();
+    e.preventDefault();
 //    e.stopPropagation();
+
     var query={};
     $("box").find("input").each(function(i,obj){
       var ip = $(obj);
+      if(ip.attr("name")==="txtNombre"){
+        query.txtNombre = ip.val();
+      }
       if(ip.attr("name")==="txtEmail"){
         query.txtEmail = ip.val();
       }
@@ -18,9 +22,6 @@ function page3_onload(e){
       }
       if(ip.attr("name")==="txtDireccion"){
         query.txtDireccion = ip.val();
-      }
-      if(ip.attr("name")==="txtNombre"){
-        query.txtNombre = ip.val();
       }
     });
     $.post(
