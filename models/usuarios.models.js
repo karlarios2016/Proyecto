@@ -1,5 +1,5 @@
-
-var md5 = require('md5');
+var usuarioStruct = require('./usuario.struct.js'),
+  md5 = require('md5');
 
 
 var UsuarioModel = function(db){
