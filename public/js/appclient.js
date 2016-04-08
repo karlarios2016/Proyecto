@@ -2,6 +2,8 @@ $("#page3").on("pagecreate",page3_onload);
 
 function page3_onload(e){
   $("#btnNewUser").on("click", function(e){
+//    e.preventDefault();
+//    e.stopPropagation();
     var query={};
     $("form").find("input").each(function(i,obj){
       var ip = $(obj);
