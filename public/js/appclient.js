@@ -1,6 +1,6 @@
-$("#page_newUser").on("pagecreate",page_newUser_onload);
+$("#page3").on("pagecreate",page3_onload);
 
-function page_newUser_onload(e){
+function page3_onload(e){
   $("#btnNewUser").on("click", function(e){
     var query={};
     $("form").find("input").each(function(i,obj){
