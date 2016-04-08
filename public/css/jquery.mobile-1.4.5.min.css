@@ -755,7 +755,7 @@ legend, .ui-input-text input, .ui-input-search input {
   border-color: #bbb;
   color: #333;
   text-shadow: 0 1px 0 #f3f3f3;
-  background: url("1.jpg");
+
 }
 .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a {
   background-color: #fff;
@@ -948,7 +948,7 @@ body.ui-mobile-viewport, div.ui-mobile-viewport {
   display: block;
   overflow: visible;
   overflow-x: hidden;
-  background:src("/public/Images/1.jpg");
+
 }
 @media screen and (orientation:portrait) {
   .ui-mobile .ui-page {
@@ -1161,7 +1161,8 @@ body.ui-mobile-viewport, div.ui-mobile-viewport {
   position: absolute;
   display: block;
   width: 22px;
-  height: 22px
+  height: 22px;
+  margin: 1% 38%;
 }
 .ui-btn-icon-notext:after, .ui-btn-icon-left:after, .ui-btn-icon-right:after {
   top: 50%;

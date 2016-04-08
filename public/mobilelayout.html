@@ -74,6 +74,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#page3" class="ui-btn-active">Registrarse</a></li>
+          <li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
 					<li><a href="#page6" data-transition="slide" role="main" class="ui-content">Ingresar</a></li>
 				</ul>
 			</div>
@@ -105,7 +106,9 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#page1" data-transition="slide" role="main" class="ui-content">Regresar</a></li>
+					<li><a href="#page2" data-transition="slide" role="main" class="ui-content">Regresar</a></li>
+            <li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+
 					<li><a href="#page6" data-transition="slide" role="main" class="ui-content">Ingresar</a></li>
 				</ul>
 			</div>
@@ -171,8 +174,9 @@
 		<div data-role="footer" data-position="fixed">
       <div data-role="navbar">
         <ul>
-          <li><a href="#page1" data-transition="slide" role="main" class="ui-content">Regresar</a></li>
-        
+          <li><a  data-transition="slide" role="main" class="ui-content" disabled><br></a></li>
+            <li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+              <li><a  data-transition="slide" role="main" class="ui-content"><br></a></li>
         </ul>
       </div>
 
@@ -181,7 +185,6 @@
 		</div>
 		<!-- /navbar -->
 	</div>
-
 	<!-- Consulta-->
 	<div data-role="page" id="page6">
 		<div data-role="header">
@@ -215,4 +218,38 @@
 		</div>
 		<!-- /footer -->
 	</div>
+<!-- Encargos-->
+  <div data-role="page" id="page7">
+		<div data-role="header">
+			<h1></h1>
+		</div>
+		<div role="main" class="ui-content back">
+			<p>Consultas</p>
+
+		</div>
+		<div class="box">
+			<input type="text" name="name" id="basic" value="" placeholder="Nombre">
+			<input type="email" name="name" value="" placeholder="Correo electronico">
+			<textarea name="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
+			<input type="date" name="name" value="">
+			<input type="file" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+			<br>
+			<br>
+			<br>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#page2" data-transition="slide" role="main" class="ui-content">Regresar</a></li>
+					<li><a href="#page1" data-transition="slide" role="main" class="ui-content">Enviar</a></li>
+				</ul>
+			</div>
+			<!-- /navbar -->
+		</div>
+		<!-- /footer -->
+	</div>
+
 </body>
