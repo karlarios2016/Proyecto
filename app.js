@@ -4,8 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-sessions');
 var routes = require('./routes/index');
+//var mongoose = require('mongoose');
+//var MongoDBStore = require('connect-mongodb-session')(session);
 //var users = require('./routes/users');
 //var mob = require('./routes/mob');
 
@@ -28,6 +30,42 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+//Manejador de sesiones
+/*var store = newMongoDBStore(
+  {
+    uri: 'mongodb://localhost:27017/prueba',
+    collection: 'sessions'
+  });
+
+// Catch errors
+store.on('error', function(error) {
+  assert.ifError(error);
+  assert.ok(false);
+});
+
+app.use(require('express-sessions')({
+  secret: 'the only truth about life is death',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge:1000*60*60*3 // 3 horas
+    //maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+    //maxAge: 1000 * 60 * 60 * 24 * 30 // 1 month
+    //maxAge: 1000 * 60 * 60 * 24 * 265 // 1 year
+  },
+  store: store
+}));
+server = app.listen(3000);
+*/
+/*app.use(session({
+   secret: 'justanotherpbtool',
+   resave:true,saveUninitialized:true,
+   cookie: { maxAge: 1000*60*60*3}
+ }
+));*/
+
 
 app.use('/', routes);
 app.use('/api', api);
