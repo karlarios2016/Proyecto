@@ -1,6 +1,8 @@
 $("#page3").on("pagecreate",page3_onload);
-$("#page2").on("pagecreate", page2_onload);
-$("#page5").on("pagecreate", page5_onload
+//$("#page2").on("pagecreate", page2_onload);
+$("#page5").on("pagecreate", page5_onload);
+
+var imagen;
 
 function page3_onload(e){
   $("#btnNewUser").on("click", function(e){
@@ -39,18 +41,22 @@ function page3_onload(e){
 
 
 function page5_onload(e){
+
   $("#btnUpload").on("click", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (picFile) {
+    //e.preventDefault();
+    //e.stopPropagation();
+  //  if (query.design) {
+      console.log("entro aqui");
         var formBody = new FormData();
-        $.each(picFile, function(llave, valor) {
-            formBody.append("userpic", valor);
+        $.each(imagen, function(llave, valor) {
+            formBody.append("imagen", valor);
         });
-        formBody.append("backlogid", selectedBacklogItemID);
+        formBody.append("nombre", query.txtConsNombre);
+        formBody.append("email", query.txtConsCorreo);
+        formBody.append("consulta", query.Caja);
         showLoading();
         $.ajax({
-            url: "api/upload",
+            url: "api/consulta",
             type: "POST",
             data: formBody,
             cache: false,
@@ -60,16 +66,17 @@ function page5_onload(e){
             success: function(data, success, xhr) {
                 $("#frm_upload").get()[0].reset();
                 hideLoading();
-                change_page("backlogdetail");
+                //change_page("backlogdetail");
             },
             error: function(xhr, fail, data) {
                 hideLoading();
-                alert("Error while uploading evidence file. Try again latter!");
+                alert("Error al subir consulta");
             }
         });
-    } else {
-        alert("Must select an evidence file!");
-    }
+  //  } else {
+    //    alert("Must select an evidence file!");
+  //  }
+
   });
 }
 

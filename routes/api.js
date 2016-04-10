@@ -43,7 +43,6 @@ router.post('/newuser', function(req, res, next) {
         //req.session.userid= id;
         res.status(200).json(id);
       }
-
     }
   );
 });
@@ -92,15 +91,18 @@ router.get('/logout', function(req, res){
 */
 
 //---------------------------------------------upload
-router.post("/upload",
+router.post("/consulta",
              upload.single('imagen'),
              function(req,res){
                      if(req.file){
-                         var query = {/*_id: new ObjectID(req.body.backlogid)*/};
-                         usuario.updateOne(
+                         var query = {"email": req.body.txtConsCorreoEmail,
+                                      "consName": req.body.txtConsNombre,
+                                      "request": req.body.Caja
+                                    };
+                         ConsultaModel.nuevaConsulta(newRequest,
                              query,
                              {"$push":{"design":("img/" + req.file.filename)}},
-                             {w:1},
+                          //   {w:1},
                              function(err,result){
                                  if(err){
                                      res.status(500).json({"error":err});
