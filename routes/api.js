@@ -42,7 +42,7 @@ router.post('/newuser', function(req, res, next) {
         });
       } else {
         //req.session.userid= id;
-        res.status(200).json(id);
+        //res.status(200).json(id);
       }
     }
   );
@@ -93,16 +93,27 @@ router.get('/logout', function(req, res){
 
 //---------------------------------------------upload
 var ConsultaModel = new Consultas(db);
+//var multiparty = require('multiparty');
 router.post("/consulta", upload.single('imagen'),
              function(req,res,next){
-                    console.log(req.file);
+            // if(req.file){
+                    //var formulario= new multiparty.Form();
+                    //formulario.parse(req, function (err, fields, files){
+                      //var img = req.files;
+                      //formulario.on('part', function(part) {
+                      //console.log(part.name);
+                    //});
+                    /*  fs.readFile(img.path, function (err, data){
+                        var path= "./public/img" + img.originalFilename;
+                        fs.writeFile();
+                      });*/
+                    //});
                          var newRequest = {"email": req.body.txtConsCorreo,
                                       "consName": req.body.txtConsNombre,
                                       "request": req.body.Caja,
-                                     "image": (req.body.imagen)
+                                     "image": req.body.imagen
                                     };
                          ConsultaModel.nuevaConsulta(newRequest,
-
                             // {"$push":{"design":("img/" + req.file.imagen)}},
                           //   {w:1},
                              function(err,result){
@@ -113,9 +124,9 @@ router.post("/consulta", upload.single('imagen'),
                                  }
                              }
                          );
-                  //   }else{
-                  //       res.status(500).json({"error":"Filesize or Type Error"});
-                    // }
+            //         }else{
+              //           res.status(500).json({"error":"Filesize or Type Error"});
+                //     }
              });
 
 return router;
