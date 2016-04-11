@@ -1,8 +1,7 @@
 $("#page3").on("pagecreate",page3_onload);
 //$("#page2").on("pagecreate", page2_onload);
-$("#page5").on("pagecreate", page5_onload);
+$("#page5").on("pagecreate",page5_onload);
 
-var imagen;
 
 function page3_onload(e){
   $("#btnNewUser").on("click", function(e){
@@ -41,42 +40,36 @@ function page3_onload(e){
 
 
 function page5_onload(e){
-
   $("#btnUpload").on("click", function(e) {
-    //e.preventDefault();
-    //e.stopPropagation();
-  //  if (query.design) {
-      console.log("entro aqui");
-        var formBody = new FormData();
-        $.each(imagen, function(llave, valor) {
-            formBody.append("imagen", valor);
-        });
-        formBody.append("nombre", query.txtConsNombre);
-        formBody.append("email", query.txtConsCorreo);
-        formBody.append("consulta", query.Caja);
-        showLoading();
-        $.ajax({
-            url: "api/consulta",
-            type: "POST",
-            data: formBody,
-            cache: false,
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-            success: function(data, success, xhr) {
-                $("#frm_upload").get()[0].reset();
-                hideLoading();
-                //change_page("backlogdetail");
-            },
-            error: function(xhr, fail, data) {
-                hideLoading();
-                alert("Error al subir consulta");
-            }
-        });
-  //  } else {
-    //    alert("Must select an evidence file!");
-  //  }
 
+  var query={};
+  $("form").find("input").each(function(i,obj){
+
+    var ip= $(obj);
+    if(ip.attr("name")==="txtConsNombre"){
+      query.txtConsNombre = ip.val();
+    }
+    if(ip.attr("name")==="txtConsCorreo"){
+      query.txtConsCorreo = ip.val();
+    }
+    if(ip.attr("name")==="imagen"){
+      query.imagen = ip.val();
+    }
+  });
+ $("form").find("textarea").each(function(i,obj){
+    var ip= $(obj);
+    if(ip.attr("name")==="Caja"){
+      query.Caja = ip.val();
+    }
+  });
+  $.post(
+    "/api/consulta",
+    query,
+    function(data,successtst,xhr){
+      console.log(data);
+    },
+    "json"
+  );
   });
 }
 

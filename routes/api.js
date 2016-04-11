@@ -1,14 +1,15 @@
 var express = require('express');
-//var path = require('path');
+var path = require('path');
 var router = express.Router();
 var ObjectID = require('mongodb').ObjectID;
 var md5 = require('md5');
 var multer = require('multer');
 var regexpt = /^((image)|(video))\/\w*$/i;
 var Usuarios = require('../models/usuarios.models.js');
-//var fs = require('fs');
+var Consultas = require('../models/consultas.models.js');
+var fs = require('fs');
 var upload = multer({
-  dest: "public/img/",
+  dest: "../public/uploads/",
   limits: {
     fileSize: (1024 * 1024 * 10)
   },
@@ -91,29 +92,30 @@ router.get('/logout', function(req, res){
 */
 
 //---------------------------------------------upload
-router.post("/consulta",
-             upload.single('imagen'),
-             function(req,res){
-                     if(req.file){
-                         var query = {"email": req.body.txtConsCorreoEmail,
+var ConsultaModel = new Consultas(db);
+router.post("/consulta", upload.single('imagen'),
+             function(req,res,next){
+                    console.log(req.file);
+                         var newRequest = {"email": req.body.txtConsCorreo,
                                       "consName": req.body.txtConsNombre,
-                                      "request": req.body.Caja
+                                      "request": req.body.Caja,
+                                     "image": (req.body.imagen)
                                     };
                          ConsultaModel.nuevaConsulta(newRequest,
-                             query,
-                             {"$push":{"design":("img/" + req.file.filename)}},
+
+                            // {"$push":{"design":("img/" + req.file.imagen)}},
                           //   {w:1},
                              function(err,result){
                                  if(err){
                                      res.status(500).json({"error":err});
                                  }else{
-                                     res.status(200).json({"path":("img/"+req.file.filename)});
+                                    res.status(200).json({"path":(req.body.imagen)});
                                  }
                              }
                          );
-                     }else{
-                         res.status(500).json({"error":"Filesize or Type Error"});
-                     }
+                  //   }else{
+                  //       res.status(500).json({"error":"Filesize or Type Error"});
+                    // }
              });
 
 return router;
