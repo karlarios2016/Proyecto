@@ -27,4 +27,19 @@ ConsultaModel.prototype.nuevaConsulta = function(data,handler){
   });
 }
 
+  ConsultaModel.prototype.getAllConsultas = function (handler){
+      this.consultaColl.find({}).toArray(
+        function(err, docs){
+          if(err){
+            console.log(err);
+            handler(err, null);
+          }else{
+            handler(null, docs);
+          }
+        }
+      );
+    }
+
+
+
 module.exports = ConsultaModel;

@@ -129,5 +129,21 @@ router.post("/consulta", upload.single('imagen'),
                 //     }
              });
 
+  var ConsultaModel = new Consultas(db);
+ router.get('/obtenerconsulta', function(req, res, next) {
+   proyectos.getAllProyects(
+     function(err, consultasDoc) {
+       if (err) {
+         console.log(err);
+         res.status(500).json({
+           "error": "No se pudo obtener las consultas"
+         });
+       } else {
+         res.status(200).json(consultasDoc);
+       }
+     }
+   );
+ }) ;
+
 return router;
 };

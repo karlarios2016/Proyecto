@@ -1,6 +1,8 @@
 $("#page3").on("pagecreate",page3_onload);
 //$("#page2").on("pagecreate", page2_onload);
 $("#page5").on("pagecreate",page5_onload);
+$("#page6").on("pagecreate",page6_onload);
+$("#page7").on("pagecreate",page7_onload);
 
 
 function page3_onload(e){
@@ -73,6 +75,65 @@ function page5_onload(e){
   });
 }
 
+var _pedidos = [];
+var _selectedPedidoIdtId = "";
+function page6_onload(e){
+  cargarDocumentos();
+//  onListItemClick();
+}
+
+function onListItem(){
+    $("#btnCorreo").find("input").each(function(i,obj){
+      var ip = $(obj);
+      if(ip.attr("name")==="pedidoCorreo"){
+        user = ip.val();
+      }
+      _selectedPedidoId = user;
+      getSelectedConsulta();
+    });
+}
+
+
+
+function page7_onload(e){
+  cargarDocumentos();
+  onListItem();
+  }
+
+  function cargarDocumentos(){
+    $.get(
+      '/api/obtenerconsulta',
+      {},
+      function(data,successtxt,xhr){
+        console.log(data);
+        var htmlstr = "";
+        _pedidos = data;
+        data.map(function(doc, index){
+          htmlstr += '<li><a data-id="'+ doc._id +'" href="#page_pedidoDetail">' + doc.nombre +"</a></li>";
+        });
+        var lst = $("#page8");
+        lst.html(htmlstr);
+        lst.listview("refresh");
+        //console.log(data);
+      },
+      'json'
+    );
+  }
+
+  function getSelectedPedido(){
+    _pedidos.map(
+      function(Consulta,index){
+        if(Consulta._id === _selectedPedidoId){
+          var htmlstr = "";
+          htmlstr += "<h3>" + Consulta.nombreCompleto + "</h3>";
+          htmlstr += "<p>" + Consulta.email+ "</p>";
+          htmlstr += "<p>" + Consulta.request+ "</p>";
+          $("#page8").html(htmlstr);
+        }
+      }
+    );
+    _selectedPedidoId;
+  }
 /*function page2_onload(e){
   $("#btnLgnIn").find("input").each(Function(i,obj){
     console.log("entro aqui");
