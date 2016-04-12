@@ -131,7 +131,7 @@ router.post("/consulta", upload.single('imagen'),
 
   var ConsultaModel = new Consultas(db);
  router.get('/obtenerconsulta', function(req, res, next) {
-   proyectos.getAllProyects(
+   ConsultaModel.getAllConsultas(
      function(err, consultasDoc) {
        if (err) {
          console.log(err);

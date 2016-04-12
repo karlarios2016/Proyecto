@@ -2,7 +2,7 @@ $("#page3").on("pagecreate",page3_onload);
 //$("#page2").on("pagecreate", page2_onload);
 $("#page5").on("pagecreate",page5_onload);
 $("#page6").on("pagecreate",page6_onload);
-$("#page7").on("pagecreate",page7_onload);
+//$("#page8").on("pagecreate",page7_onload);
 
 
 function page3_onload(e){
@@ -78,27 +78,22 @@ function page5_onload(e){
 var _pedidos = [];
 var _selectedPedidoIdtId = "";
 function page6_onload(e){
-  cargarDocumentos();
-//  onListItemClick();
+   cargarDocumentos();
+  onListItem();
 }
 
 function onListItem(){
-    $("#btnCorreo").find("input").each(function(i,obj){
-      var ip = $(obj);
-      if(ip.attr("name")==="pedidoCorreo"){
-        user = ip.val();
-      }
-      _selectedPedidoId = user;
-      getSelectedConsulta();
-    });
+  $("#ListView").on("click","a",
+ function(e){
+   //e.preventDefault();
+   //e.stopPropagation();
+   var idClicked = $(this).data("id");
+   _selectedPedidoId = idClicked;
+   getSelectedPedido();
+ }
+);
 }
 
-
-
-function page7_onload(e){
-  cargarDocumentos();
-  onListItem();
-  }
 
   function cargarDocumentos(){
     $.get(
@@ -109,9 +104,9 @@ function page7_onload(e){
         var htmlstr = "";
         _pedidos = data;
         data.map(function(doc, index){
-          htmlstr += '<li><a data-id="'+ doc._id +'" href="#page_pedidoDetail">' + doc.nombre +"</a></li>";
+          htmlstr += '<li><a data-id="'+ doc._id +'" href="#page8">' + doc.correo + "</a></li>";
         });
-        var lst = $("#page8");
+        var lst = $("#ListView");
         lst.html(htmlstr);
         lst.listview("refresh");
         //console.log(data);
@@ -125,9 +120,11 @@ function page7_onload(e){
       function(Consulta,index){
         if(Consulta._id === _selectedPedidoId){
           var htmlstr = "";
-          htmlstr += "<h3>" + Consulta.nombreCompleto + "</h3>";
-          htmlstr += "<p>" + Consulta.email+ "</p>";
-          htmlstr += "<p>" + Consulta.request+ "</p>";
+          htmlstr += "<div class ='box'> ";
+          htmlstr += "<p>" + Consulta.nombreCompleto + "</p>";
+          htmlstr += "<p>" + Consulta.correo+ "</p>";
+          htmlstr += "<p>" + Consulta.Consulta+ "</p>";
+          htmlstr += " '/div>" ;
           $("#page8").html(htmlstr);
         }
       }
