@@ -42,7 +42,11 @@
 					<a href="#page7" class="ui-btn ui-corner-all bordes">Encargos</a>
 				</div>
 				<div class="middlebox">
+<<<<<<< HEAD
 					<a href="#page8" class="ui-btn ui-corner-all bordes">Pedidos</a>
+=======
+					<a href="#page6" class="ui-btn ui-corner-all bordes" >Ver Pedidos</a>
+>>>>>>> origin/master
 				</div>
 				<!-- <div class="middlebox">
 					<a href="#page2" class="ui-btn ui-corner-all bordes" >Login</a>
@@ -210,18 +214,19 @@
 			<p>Ver Pedidos</p>
 		</div>
 		<div class="box">
-			<input type="text" name="name" id="basic" value="" placeholder="Nombre">
-			<input type="email" name="name" value="" placeholder="Correo electronico">
-			<textarea name="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
-			<input type="date" name="name" value="">
-			<input type="file" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+			<form>
+			<input type="email" name="pedidoCorreo" id="pedidoCorreo" value="" placeholder="Correo electronico">
+		</form>
+		<ul data-role="listview" id="ListView">
+
+        </ul>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a href="#page1" data-transition="slide" role="main" class="ui-content">Enviar</a></li>
+					<li><a  data-transition="slide" id="btnCorreo" role="main" class="ui-content">Enviar</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -257,11 +262,11 @@
 	</div>
 	<!-- Pedidos-->
 	<div data-role="page" id="page8">
-		<div data-role="header">
+		<div data-role="listview">
 			<h1></h1>
 		</div>
 		<div role="main" class="ui-content back">
-			<p>Pedidos</p>
+			<p>Detalle Pedidos</p>
 		</div>
 		<div class="box">
 
