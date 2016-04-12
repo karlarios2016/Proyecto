@@ -3,9 +3,9 @@ module.exports = {
         return {
             "correo":"",
             "nombreCompleto":"",
-            "fechaConsulta":0,
-            "Consulta":"",
-          //  "imagen": ""
+            "fechaEncargo":0,
+            "encargo":"",
+            "estado": ""
         };
     },
 

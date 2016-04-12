@@ -41,9 +41,9 @@
 				<div class="middlebox">
 					<a href="#page7" class="ui-btn ui-corner-all bordes" >Encargos</a>
 				</div>
-				<div class="middlebox">
+			<!--	<div class="middlebox">
 					<a href="#page6" class="ui-btn ui-corner-all bordes" >Ver Pedidos</a>
-				</div>
+				</div> -->
 
 
 				<!-- <div class="middlebox">
@@ -192,7 +192,8 @@
 			<input type="text" name="txtConsNombre" id="txtConsNombre" value="" placeholder="Nombre">
 			<input type="email" name="txtConsCorreo" id="txtConsCorreo" value="" placeholder="Correo electronico">
 			<textarea name="Caja" id="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
-			<input type="file" multiple="multiple" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+			<!-- <input type="file" multiple="multiple" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+			-->
 		</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -213,11 +214,12 @@
 			<h1></h1>
 		</div>
 		<div role="main" class="ui-content back">
-			<p>Ver Pedidos</p>
+			<p>Ver Consultas</p>
 		</div>
 		<div class="box">
 			<form>
-			<input type="email" name="pedidoCorreo" id="pedidoCorreo" value="" placeholder="Correo electronico">
+			<!--<input type="email" name="pedidoCorreo" id="pedidoCorreo" value="" placeholder="Correo electronico">
+			-->
 		</form>
 		<ul data-role="listview" id="ListView">
 
@@ -228,7 +230,7 @@
 				<ul>
 					<li><a  data-transition="slide" role="main" class="ui-content"><br></a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a  data-transition="slide" id="btnCorreo" role="main" class="ui-content">Enviar</a></li>
+					<li><a  data-transition="slide"  role="main" class="ui-content"></a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -244,18 +246,22 @@
 			<p>Encargos</p>
 		</div>
 		<div class="box">
-			<input type="text" name="name" id="basic" value="" placeholder="Nombre">
-			<input type="email" name="name" value="" placeholder="Correo electronico">
-			<textarea name="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
-			<input type="date" name="name" value="">
-			<input type="file" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+			<form>
+			<input type="text" name="txtOrderName" id="txtOrderName" value="" placeholder="Nombre">
+			<input type="email" name="txtOrderEmail" id="txtOrderEmail" value="" placeholder="Correo electronico">
+			<textarea name="AreaTexto" rows="8" cols="8" placeholder="Escriba aqui su encargo" class="area"></textarea>
+			<label> Fecha Deseada de entrega </label>
+			<input type="date" name="fchaEntrega" value="">
+		<!--	<input type="file" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+		-->
+	</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a href="#page1" data-transition="slide" role="main" class="ui-content">Enviar</a></li>
+					<li><a href="#page1" data-transition="slide" role="main" id="btnEncargo" class="ui-content">Enviar</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -268,7 +274,7 @@
 			<h1></h1>
 		</div>
 		<div role="main" class="ui-content back">
-			<p>Detalle Pedidos</p>
+			<p>Detalle Consultas</p>
 		</div>
 		<div class="box">
 
@@ -278,12 +284,87 @@
 				<ul>
 					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a href="#page1" data-transition="slide" role="main" class="ui-content" id="btnUpload">Enviar</a></li>
+					<li><a href="#page1" data-transition="slide" role="main" class="ui-content" ></a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
 		</div>
+
+		<div data-role="page" id="admin">
+			<div data-role="header">
+				<h1></h1>
+			</div>
+			<div role="main" class="ui-content">
+				<p> </p>
+				<!-- cosas de menu principal -->
+			</div>
+			<div class="box">
+				<img src="Images/1.gif" alt="logo" class="size" />
+				<!--contenedor de meenu -->
+				<div data-role="controlgroup">
+
+					<div class="middlebox">
+						<a href="#page6" class="ui-btn ui-corner-all bordes" >Ver Consultas</a>
+						<a href="#page9" class="ui-btn ui-corner-all bordes" >Ver Pedidos</a>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1></h1>
+				<!-- /footer -->
+			</div>
+			<!-- Inicio de sesion -->
+			</div>
 		<!-- /footer -->
+
+		<div data-role="page" id="page9">
+			<div data-role="header">
+				<h1></h1>
+			</div>
+			<div role="main" class="ui-content back">
+				<p>Ver Pedidos</p>
+			</div>
+			<div class="box">
+
+			<ul data-role="listview" id="ListView">
+
+	        </ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a  data-transition="slide" role="main" class="ui-content"><br></a></li>
+						<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+						<li><a  data-transition="slide"  role="main" class="ui-content"></a></li>
+					</ul>
+				</div>
+				<!-- /navbar -->
+			</div>
+			<!-- /footer -->
+		</div>
+
+		<div data-role="page" id="page10">
+			<div data-role="listview">
+				<h1></h1>
+			</div>
+			<div role="main" class="ui-content back">
+				<p>Detalle Pedidos</p>
+			</div>
+			<div class="box">
+
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
+						<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+						<li><a href="#page1" data-transition="slide" role="main" class="ui-content" ></a></li>
+					</ul>
+				</div>
+				<!-- /navbar -->
+			</div>
+
+
   <script src="/js/appclient.js"></script>
     </body>
   </html>

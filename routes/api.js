@@ -7,6 +7,7 @@ var multer = require('multer');
 var regexpt = /^((image)|(video))\/\w*$/i;
 var Usuarios = require('../models/usuarios.models.js');
 var Consultas = require('../models/consultas.models.js');
+var Encargos= require('../models/encargos.models.js')
 var fs = require('fs');
 var upload = multer({
   dest: "../public/uploads/",
@@ -110,8 +111,8 @@ router.post("/consulta", upload.single('imagen'),
                     //});
                          var newRequest = {"email": req.body.txtConsCorreo,
                                       "consName": req.body.txtConsNombre,
-                                      "request": req.body.Caja,
-                                     "image": req.body.imagen
+                                      "request": req.body.Caja
+                                    // "image": req.body.imagen
                                     };
                          ConsultaModel.nuevaConsulta(newRequest,
                             // {"$push":{"design":("img/" + req.file.imagen)}},
@@ -120,7 +121,7 @@ router.post("/consulta", upload.single('imagen'),
                                  if(err){
                                      res.status(500).json({"error":err});
                                  }else{
-                                    res.status(200).json({"path":(req.body.imagen)});
+                                  //  res.status(200).json({"path":(req.body.imagen)});
                                  }
                              }
                          );
@@ -143,7 +144,47 @@ router.post("/consulta", upload.single('imagen'),
        }
      }
    );
- }) ;
+ });
+
+
+ var EncargoModel = new Encargos(db);
+ router.post("/encargo", upload.single('imagen'),
+   function(req, res, next) {
+     var newOrder = {
+       "email": req.body.txtOrderEmail,
+       "orderName": req.body.txtOrderName,
+       "order": req.body.AreaTexto,
+       "orderFecha": req.body.fchaEntrega
+         // "image": req.body.imagen
+     };
+     EncargoModel.nuevoEncargo(newOrder,
+       function(err, result) {
+         if (err) {
+           res.status(500).json({
+             "error": err
+           });
+         } else {
+           //  res.status(200).json({"path":(req.body.imagen)});
+         }
+       });
+   });
+
+ var EncargoModel = new Encargos(db);
+ router.get('/obtenerpedido', function(req, res, next) {
+   EncargoModel.getAllEncargos(
+     function(err, consultasDoc) {
+       if (err) {
+         console.log(err);
+         res.status(500).json({
+           "error": "No se pudo obtener los encargos"
+         });
+       } else {
+         res.status(200).json(consultasDoc);
+       }
+     }
+   );
+ });
+
 
 return router;
 };

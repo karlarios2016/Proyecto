@@ -2,7 +2,8 @@ $("#page3").on("pagecreate",page3_onload);
 //$("#page2").on("pagecreate", page2_onload);
 $("#page5").on("pagecreate",page5_onload);
 $("#page6").on("pagecreate",page6_onload);
-//$("#page8").on("pagecreate",page7_onload);
+$("#page9").on("pagecreate",page9_onload);
+$("#page7").on("pagecreate",page7_onload);
 
 
 function page3_onload(e){
@@ -75,8 +76,8 @@ function page5_onload(e){
   });
 }
 
-var _pedidos = [];
-var _selectedPedidoIdtId = "";
+var _consulta = [];
+var _selectedPedidoId = "";
 function page6_onload(e){
    cargarDocumentos();
   onListItem();
@@ -85,13 +86,10 @@ function page6_onload(e){
 function onListItem(){
   $("#ListView").on("click","a",
  function(e){
-   //e.preventDefault();
-   //e.stopPropagation();
    var idClicked = $(this).data("id");
    _selectedPedidoId = idClicked;
-   getSelectedPedido();
- }
-);
+   getSelectedConsulta();
+ });
 }
 
 
@@ -102,7 +100,7 @@ function onListItem(){
       function(data,successtxt,xhr){
         console.log(data);
         var htmlstr = "";
-        _pedidos = data;
+        _consulta = data;
         data.map(function(doc, index){
           htmlstr += '<li><a data-id="'+ doc._id +'" href="#page8">' + doc.correo + "</a></li>";
         });
@@ -115,8 +113,8 @@ function onListItem(){
     );
   }
 
-  function getSelectedPedido(){
-    _pedidos.map(
+  function getSelectedConsulta(){
+    _consulta.map(
       function(Consulta,index){
         if(Consulta._id === _selectedPedidoId){
           var htmlstr = "";
@@ -130,6 +128,93 @@ function onListItem(){
       }
     );
     _selectedPedidoId;
+  }
+
+  function page7_onload(e){
+    $("#btnEncargo").on("click", function(e) {
+      console.log("entro aqui");
+    var query={};
+    $("form").find("input").each(function(i,obj){
+
+      var ip= $(obj);
+      if(ip.attr("name")==="txtOrderName"){
+        query.txtOrderName = ip.val();
+      }
+      if(ip.attr("name")==="txtOrderEmail"){
+        query.txtOrderEmail = ip.val();
+      }
+      if(ip.attr("name")==="fchaEntrega"){
+        query.fchaEntrega = ip.val();
+      }
+    });
+   $("form").find("textarea").each(function(i,obj){
+      var ip= $(obj);
+      if(ip.attr("name")==="AreaTexto"){
+        query.AreaTexto = ip.val();
+      }
+    });
+    $.post(
+      "/api/encargo",
+      query,
+      function(data,successtst,xhr){
+        console.log(data);
+      },
+      "json"
+    );
+    });
+  }
+
+  var _pedido = [];
+  var _selectedPedidoIdtId = "";
+  function page9_onload(e){
+     cargarPedidos();
+    onListItemE();
+  }
+
+  function onListItemE(){
+    $("#ListView").on("click","a",
+   function(e){
+     var idClicked = $(this).data("id");
+     _selectedPedidoId = idClicked;
+     getSelectedPedido();
+   });
+  }
+
+  function getSelectedPedido(){
+    _pedido.map(
+      function(Pedido,index){
+        if(Pedido._id === _selectedPedidoId){
+          var htmlstr = "";
+          htmlstr += "<div class ='box'> ";
+          htmlstr += "<p>" + Pedido.nombreCompleto + "</p>";
+          htmlstr += "<p>" + Pedido.correo+ "</p>";
+          htmlstr += "<p>" + Pedido.Consulta+ "</p>";
+          htmlstr += " '/div>" ;
+          $("#page10").html(htmlstr);
+        }
+      }
+    );
+    _selectedPedidoId;
+  }
+
+  function cargarPedidos(){
+    $.get(
+      '/api/obtenerpedido',
+      {},
+      function(data,successtxt,xhr){
+        console.log(data);
+        var htmlstr = "";
+        _pedido = data;
+        data.map(function(doc, index){
+          htmlstr += '<li><a data-id="'+ doc._id +'" href="#page10">' + doc.correo + "</a></li>";
+        });
+        var lst = $("#ListView");
+        lst.html(htmlstr);
+        lst.listview("refresh");
+        //console.log(data);
+      },
+      'json'
+    );
   }
 /*function page2_onload(e){
   $("#btnLgnIn").find("input").each(Function(i,obj){

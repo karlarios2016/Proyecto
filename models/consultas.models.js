@@ -15,7 +15,7 @@ ConsultaModel.prototype.nuevaConsulta = function(data,handler){
   newRequest.fechaConsulta = Date.now();
   newRequest.correo = data.email;
   newRequest.Consulta= data.request;
-  newRequest.imagen= data.image;
+  //newRequest.imagen= data.image;
 
   this.consultaColl.insertOne(newRequest,function(err, rslt){
     if(err){
