@@ -42,11 +42,8 @@
 					<a href="#page7" class="ui-btn ui-corner-all bordes">Encargos</a>
 				</div>
 				<div class="middlebox">
-<<<<<<< HEAD
 					<a href="#page8" class="ui-btn ui-corner-all bordes">Pedidos</a>
-=======
 					<a href="#page6" class="ui-btn ui-corner-all bordes" >Ver Pedidos</a>
->>>>>>> origin/master
 				</div>
 				<!-- <div class="middlebox">
 					<a href="#page2" class="ui-btn ui-corner-all bordes" >Login</a>
@@ -125,7 +122,7 @@
 			<p>Registro </p>
 		</div>
 		<div class="box">
-			<form>
+			<form onsubmit="return validar()">
 				<input type="text" name="txtNombre" id="txtNombre" value="" placeholder="Nombre">
 				<input type="email" name="txtEmail" id="txtEmail" value="" placeholder="Correo electronico">
 				<input type="password" name="txtPswd" id="txtPswd" value="" placeholder="Contraseña">
@@ -177,7 +174,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- cotizacion-->
+	<!-- cotizacion/consulta-->
 	<div data-role="page" id="page5">
 		<div data-role="header">
 			<h1></h1>
@@ -186,8 +183,8 @@
 			<p>Consultas</p>
 		</div>
 		<div class="box">
-			<form enctype="multipart/form-data">
-				<input type="text" name="txtConsNombre" id="txtConsNombre" value="" placeholder="Nombre">
+			<form enctype="multipart/form-data" onsubmit="return validar()">
+				<input type="text" name="txtConsNombre" id="txtConsNombre" value="" placeholder="Nombre" required>
 				<input type="email" name="txtConsCorreo" id="txtConsCorreo" value="" placeholder="Correo electronico">
 				<textarea name="Caja" id="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
 				<input type="file" multiple="multiple" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
@@ -205,7 +202,7 @@
 		</div>
 		<!-- /footer -->
 	</div>
-	<!-- Consulta-->
+	<!-- Consulta/pedidos-->
 	<div data-role="page" id="page6">
 		<div data-role="header">
 			<h1></h1>
