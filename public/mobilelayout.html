@@ -11,8 +11,9 @@
 	<link rel="stylesheet" href="/css/theme1.css" />
 	<link rel="stylesheet" href="/css/theme1.min.css" />
 	<script src="/js/jquery.min.js"></script>
+		<script src="/js/Validaciones2.js"></script>
+			<script src="/js/Validaciones.js"></script>
 	<script src="/js/jquery.mobile.min.js"></script>
-
 
 
 </head>
@@ -32,33 +33,29 @@
 			<!--contenedor de meenu -->
 			<div data-role="controlgroup">
 				<div class="middlebox">
-					<a href="#page4" class="ui-btn ui-corner-all bordes" >Galería</a>
+					<a href="#page4" class="ui-btn ui-corner-all bordes">Galería</a>
 				</div>
 				<div class="middlebox">
 					<a href="#page5" class="ui-btn ui-corner-all bordes">Consultas</a>
 				</div>
-
 				<div class="middlebox">
-					<a href="#page7" class="ui-btn ui-corner-all bordes" >Encargos</a>
+					<a href="#page7" class="ui-btn ui-corner-all bordes">Encargos</a>
 				</div>
 				<div class="middlebox">
-					<a href="#page8" class="ui-btn ui-corner-all bordes" >Pedidos</a>
+					<a href="#page8" class="ui-btn ui-corner-all bordes">Pedidos</a>
 				</div>
-
-
 				<!-- <div class="middlebox">
 					<a href="#page2" class="ui-btn ui-corner-all bordes" >Login</a>
 				</div>-->
-
 			</div>
 		</div>
-
 		<div data-role="footer" data-position="fixed">
 			<h1></h1>
 			<!-- /footer -->
 		</div>
 		<!-- Inicio de sesion -->
 	</div>
+
 	<!-- inicio de sesion -->
 	<div data-role="page" id="page2">
 		<div data-role="header">
@@ -71,7 +68,6 @@
 			<input type="email" name="lgn_user" id="lgn_user" value="" placeholder="Correo">
 			<input type="password" name="lgn_pwd" id="lgn_pwd" value="" placeholder="Contraseña">
 		</div>
-
 		<!-- <br>
 		<a href="#page2" data-transition="slide" role="main" class="ui-content">Registrarse</a>
 		<br> -->
@@ -80,8 +76,8 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#page3" class="ui-btn-active">Registrarse</a></li>
-          <li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a href="#page6" data-transition="slide" role="main" class="ui-content" id="btnLgnIn">Ingresar</a></li>
+					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+					<li><a href="#page6" data-transition="slide" role="main" class="ui-content" id="btnLgnIn" onclick="return validar()">Ingresar</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -109,7 +105,7 @@
 				<ul>
 					<li><a href="#page3" class="ui-btn-active">Registrarse</a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a href="#page7" data-transition="slide" role="main" class="ui-content" id="btnLgnIn">Ingresar</a></li>
+					<li><a href="#page7" data-transition="slide" role="main" class="ui-content" id="btnLgnIn" onclick="return validar()">Ingresar</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -125,23 +121,21 @@
 			<p>Registro </p>
 		</div>
 		<div class="box">
-      <form>
-			<input type="text" name="txtNombre" id="txtNombre" value="" placeholder="Nombre">
-			<input type="email" name="txtEmail" id="txtEmail" value="" placeholder="Correo electronico">
-			<input type="password" name="txtPswd" id="txtPswd" value="" placeholder="Contraseña">
-			<input type="password" name="txtPswd2" id="txtPswd2" value="" placeholder="Repetir Contraseña">
-			<input type="text" name="txtTelef" id="txtTelef" value="" placeholder="Telefono">
-			<input type="text" name="txtDireccion" id="txtDireccion" value="" placeholder="Direccion">
-
-
-    </form>
+			<form>
+				<input type="text" name="txtNombre" id="txtNombre" value="" placeholder="Nombre">
+				<input type="email" name="txtEmail" id="txtEmail" value="" placeholder="Correo electronico">
+				<input type="password" name="txtPswd" id="txtPswd" value="" placeholder="Contraseña">
+				<input type="password" name="txtPswd2" id="txtPswd2" value="" placeholder="Repetir Contraseña">
+				<input type="text" name="txtTelef" id="txtTelef" value="" placeholder="Telefono">
+				<input type="text" name="txtDireccion" id="txtDireccion" value="" placeholder="Direccion">
+			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a  data-transition="slide"><br></a></li>
-          <li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li ><a href="#page1" data-transition="slide"  id="btnNewUser">Ingresar</a></li>
+					<li><a data-transition="slide">	<br></a></li>
+					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+					<li><a href="#page1" data-transition="slide" id="btnNewUser" onclick="return validar()">Ingresar</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -170,13 +164,13 @@
 			<img src="Images/pict (16).jpg" alt="" class="pictures" />
 		</div>
 		<div data-role="footer" data-position="fixed">
-      <div data-role="navbar">
-      <ul>
-        <li><a  data-transition="slide" role="main" class="ui-content" ><br></a></li>
-        <li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-        <li><a  data-transition="slide" role="main" class="ui-content"><br></a></li>
-      </ul>
-      </div>
+			<div data-role="navbar">
+				<ul>
+					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
+					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
+					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<!-- cotizacion-->
@@ -188,26 +182,26 @@
 			<p>Consultas</p>
 		</div>
 		<div class="box">
-			<form enctype="multipart/form-data" >
-			<input type="text" name="txtConsNombre" id="txtConsNombre" value="" placeholder="Nombre">
-			<input type="email" name="txtConsCorreo" id="txtConsCorreo" value="" placeholder="Correo electronico">
-			<textarea name="Caja" id="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
-			<input type="file" multiple="multiple" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
-		</form>
+			<form enctype="multipart/form-data">
+				<input type="text" name="txtConsNombre" id="txtConsNombre" value="" placeholder="Nombre">
+				<input type="email" name="txtConsCorreo" id="txtConsCorreo" value="" placeholder="Correo electronico">
+				<textarea name="Caja" id="Caja" rows="8" cols="8" placeholder="Escriba aqui su consulta" class="area"></textarea>
+				<input type="file" multiple="multiple" accept="image/*" name="imagen" value="" placeholder="Cargar una imagen">
+			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
-					<li><a href="#page1" data-transition="slide" role="main" class="ui-content" id="btnUpload">Enviar</a></li>
+					<li><a href="#page1" data-transition="slide" role="main" class="ui-content" id="btnUpload" onclick="return validar()">Enviar</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
 		</div>
 		<!-- /footer -->
 	</div>
-		<!-- Consulta-->
+	<!-- Consulta-->
 	<div data-role="page" id="page6">
 		<div data-role="header">
 			<h1></h1>
@@ -225,7 +219,7 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a  data-transition="slide" role="main" class="ui-content"><br></a></li>
+					<li><a data-transition="slide" role="main" class="ui-content"><br></a></li>
 					<li><a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left boton"><br></a></li>
 					<li><a href="#page1" data-transition="slide" role="main" class="ui-content">Enviar</a></li>
 				</ul>
@@ -234,8 +228,8 @@
 		</div>
 		<!-- /footer -->
 	</div>
-<!-- Encargos-->
-  <div data-role="page" id="page7">
+	<!-- Encargos-->
+	<div data-role="page" id="page7">
 		<div data-role="header">
 			<h1></h1>
 		</div>
@@ -283,6 +277,8 @@
 			<!-- /navbar -->
 		</div>
 		<!-- /footer -->
-  <script src="/js/appclient.js"></script>
-    </body>
-  </html>
+		<script src="/js/appclient.js"></script>
+
+</body>
+
+</html>
